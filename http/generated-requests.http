@@ -1,0 +1,28 @@
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Ismael"
+}
+
+> {%
+    client.global.set("userId", response.body.id);
+%}
+
+###
+DELETE http://localhost:8080/api/users/{{userId}}
+Content-Type: application/json
+
+###
+PATCH http://localhost:8080/api/users/{{userId}}
+Content-Type: application/json
+
+{
+  "id": "{{userId}}",
+  "name": "Ismael Fernandez Molina"
+}
+
+###
+GET http://localhost:8080/api/users/{{userId}}
+Content-Type: application/json
